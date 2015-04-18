@@ -1,5 +1,5 @@
 # bsb_io
-Simole python module to interact with BlackSwift GPIO. Based on articles by BlackSwift developers: [on wiki](http://www.black-swift.ru/wiki/index.php?title=%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0_%D1%81_GPIO) and [on habrahabr](habrahabr.ru/company/blackswift/blog/247925/).
+Simole python module to interact with BlackSwift GPIO. Based on articles by BlackSwift developers: [on wiki](http://www.black-swift.ru/wiki/index.php?title=%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0_%D1%81_GPIO) and [on habrahabr](http://habrahabr.ru/company/blackswift/blog/247925/).
 This module uses "direct gpio access" method. 
 
 ##Installing
@@ -14,7 +14,7 @@ This module uses "direct gpio access" method.
 4. Run `make` if you want to build whole distribution or `make package/bsb_io/install` to build only bsb_io
 5. Locate .ipk in `bin/ar71xx/packages/base/`
 
-**N.B.** This module is built can with Cython 0.11 (Used by current OpenWrt BarrierBreaker Buildroot). If version of Cython in your Buildroot is higher, you would probably need to change `setup.py`.
+**N.B.** This module can be built with Cython 0.11 (Used by current OpenWrt BarrierBreaker Buildroot). If version of Cython in your Buildroot is higher, you would probably need to change `setup.py`.
 
 ##TODO
 * Implement simple, yet configurable soft PWM.
