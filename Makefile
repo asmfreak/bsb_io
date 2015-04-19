@@ -15,7 +15,8 @@ $(call include_mk, python-package.mk)
 # Переменная DEPENDS тут приведена для примера - в ней надо перечислить пакеты, от которых ваш зависит
 # Так как я пишу на простом C, на самом деле мне сейчас библиотека libstdc++ нужна не будет
 define Package/bsb_io
-    SECTION:=base
+    SUBMENU:=Python
+    SECTION:=lang
     CATEGORY:=Utilities
     DEFAULT:=n
     TITLE:=BlackSwift GPIO python module

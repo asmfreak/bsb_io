@@ -1,7 +1,16 @@
 #include "bsb_fastio.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/mman.h>
 
+#define GPIO_ADDR 0x18040000 // base address
+#define GPIO_BLOCK 48 // memory block size
+ 
+static volatile unsigned long *gpioAddress;
 int bsb_setup()
-{
+{ 
     int  m_mfd;
     if ((m_mfd = open("/dev/mem", O_RDWR)) < 0)
     {

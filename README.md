@@ -1,6 +1,6 @@
 # bsb_io
 Simple python module to interact with BlackSwift GPIO. Based on articles by BlackSwift developers: [on wiki](http://www.black-swift.ru/wiki/index.php?title=%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0_%D1%81_GPIO) and [on habrahabr](http://habrahabr.ru/company/blackswift/blog/247925/).
-This module uses _fast_ "direct gpio register access" method. 
+This module uses _fast_ "direct gpio register access" method. It means that this library is working with AR9331's registers directly. Use it with care.
 
 ##Installing
 1. Download .ipk from releases tab or build it for yourself (see section below)
