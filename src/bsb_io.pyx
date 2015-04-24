@@ -4,12 +4,13 @@ cdef extern from "bsb_fastio.h":
     void bsb_set(int gpio, int value)
     int bsb_read(int gpio)
 
-#bsb_setup()
 
 cdef class Pin:
     cdef int gpio
     def __cinit__(self, int gpio):
-        bsb_setup()
+        int res = bsb_setup()
+        if res!=0:
+            raise RuntimeError("Something went wrong with GPIO setup:", res)
         self.gpio = gpio
 
     def setDirection(self, int direction):
