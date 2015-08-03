@@ -1,6 +1,7 @@
 cdef extern from "bsb_fastio.h":
     int bsb_setup()
     unsigned long bsb_direction(int gpio, int direction)
+    int bsb_getdirection(int gpio)
     void bsb_set(int gpio, int value)
     int bsb_read(int gpio)
 
@@ -19,13 +20,24 @@ cdef class Pin:
             raise RuntimeError("Something went wrong with GPIO setup:", res)
         self.gpio = gpio
 
+
+    property state:
+        def __set__(self, values):
+            self.direction = values[1]
+            self.value = values[0]
+        def __get__(self):
+            return self.value, self.direction
+
+
     property direction:
+        def __get__(self): return bsb_getdirection(self.gpio)
         def __set__(self, int direction):
             if direction in [0,1]:
                 bsb_direction(self.gpio, direction)
             else:
                 raise RuntimeError(
                     "Direction can only be 1 or 0, specified:"+str(direction))
+
 
     property value:
             def __get__(self): return bsb_read(self.gpio)

@@ -27,6 +27,10 @@ int bsb_setup()
     return 0;
 }
 
+int bsb_getdirection(int gpio){
+    return  (*(gpioAddress + 0) & (1 << gpio))? 1 : 0;
+}
+
 unsigned long bsb_direction(int gpio, int direction)
 {
     unsigned long value = *(gpioAddress + 0); // obtain current settings
@@ -58,5 +62,5 @@ void bsb_set(int gpio, int value)
 int bsb_read(int gpio)
 {
     unsigned long value = *(gpioAddress + 1);
-    return (value & (1 < gpio));
+    return (value & (1 << gpio))? 1 : 0;
 }

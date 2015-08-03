@@ -20,6 +20,7 @@ This module uses _fast_ "direct gpio register access" method. It means that this
 There is only one class `Pin`. It's constructor accepts GPIO number.
 You can change GPIO direction (input or output) by writing `direction` property.
 You can read and write GPIO using `value`  property.
+You can modify pin state i.e. both value and direction using `state` propery.
 
 This code toggles GPIO1 every 2 seconds:
 ```

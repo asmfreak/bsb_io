@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=bsb_io
-PKG_VERSION:=0.0.2
+PKG_VERSION:=0.0.3
 PKG_RELEASE:=1
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
@@ -15,7 +15,8 @@ define Package/bsb_io
     DEFAULT:=n
     TITLE:=BlackSwift GPIO python module
     URL:=http://black-swift.com
-    DEPENDS:=+python +libstdcpp +cython
+    DEPENDS:=+python +libstdcpp
+    PKG_BUILD_DEPENDS:=+cython
 endef
 
 define Package/bsb_io/description
@@ -48,3 +49,4 @@ define Package/bsb_io/install
 endef
 
 $(eval $(call BuildPackage,bsb_io))
+
